@@ -8,3 +8,6 @@ MOVIES=("RRR" "DJTillu" "Murari") #list of movies
 # index is always -1 of the size of the array
 
 echo "First Movie is: ${MOVIES[0]}"
+echo "Second Movie is: ${MOVIES[1]}"
+echo "Third Movie is: ${MOVIES[2]}"
+echo "All movies is: ${MOVIES[@]}"
