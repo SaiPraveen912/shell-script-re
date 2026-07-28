@@ -19,4 +19,6 @@ then
     exit 1
 fi
 
+dnf install git -y
+
 echo "Is script proceeding?"
