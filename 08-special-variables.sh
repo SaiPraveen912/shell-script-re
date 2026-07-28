@@ -5,3 +5,4 @@ echo "Number of variables passed: $#" # # is the notation of number of values pa
 echo "To know this Script Name: $0"
 echo "To know current working directory: $PWD"
 echo "Home directory of current user: $HOME"
+echo "Which user is running this script: $USER" 
