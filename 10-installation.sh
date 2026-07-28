@@ -10,6 +10,13 @@ else
     echo "You are super user"
 fi
 
-dnf install mysql -y    # -y is mandatory otherwise shell script will keep on waiting
+dnf install mysqll -y    # -y is mandatory otherwise shell script will keep on waiting
+
+
+if [ $? -ne 0 ]
+then
+    echo "Installation of mysql...FAILURE"
+    exit 1
+fi
 
 echo "Is script proceeding?"
