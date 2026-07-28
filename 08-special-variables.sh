@@ -10,3 +10,4 @@ echo "Hostname: $HOSTNAME"
 echo "Process ID of current shell script: $$"
 sleep 60 & # & is used to send command to background
 echo "Process ID of last background command: $!"
+echo "Exit status of last command: $?"
