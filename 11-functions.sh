@@ -23,7 +23,6 @@ fi
 dnf install mysql -y    # -y is mandatory otherwise shell script will keep on waiting
 VALIDATE $? "Installing MySQL"
 
-
 dnf install git -y
 VALIDATE $? "Installing Git"
 
