@@ -11,3 +11,4 @@ else
 fi
 
 echo "Is script proceeding?"
+echo "All packages: $@"
