@@ -19,7 +19,6 @@ VALIDATE(){
     fi
 }
 
-
 if [ $USERID -ne 0 ]
 then
     echo "Please run the script using root access"
@@ -27,7 +26,6 @@ then
 else
     echo "You are super user"
 fi
-
 
 for i in $@
 do
