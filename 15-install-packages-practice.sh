@@ -13,7 +13,7 @@ fi
 echo "Is script proceeding?"
 echo "All packages: $@"
 
-for [ i in $@ ] # lloping through all the parameters $@
+for i in $@ # lloping through all the parameters $@
 do 
     echo "Package to install: $i"
 done
