@@ -17,4 +17,8 @@ else
     echo "You are super user"
 fi
 
+
+echo "packeges to install: $@"  
+
+
 echo "Is script proceeding?"
