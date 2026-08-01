@@ -28,14 +28,14 @@ else
 fi
 
 
-for i in $@ # looping through all the parameters $@
-do 
+for i in $@
+do
     echo "Package to install: $i"
     dnf list installed $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then
-        echo -e "$i already installed... $Y SKIPPING $N"
-    else 
+        echo -e "$i already installed...$Y SKIPPING $N" # using color yellow for SKIPPING
+    else
         dnf install $i -y &>>$LOGFILE
         VALIDATE $? "Installation of $i"
     fi
