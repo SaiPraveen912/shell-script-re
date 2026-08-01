@@ -28,17 +28,19 @@ else
 fi
 
 
-for i in $@
-do
-    echo "Packages to install: $i"
-    dnf list installed $i &>>LOGFILE
+for i in $@ # looping through all the parameters $@
+do 
+    echo "Package to install: $i"
+    dnf list installed $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then
-        echo -e "$i already installed...$Y SKIPPING $N"
-    else
-        dnf install $i -y &>>LOGFILE
+        echo -e "$i already installed... $Y SKIPPING $N"
+    else 
+        dnf install $i -y &>>$LOGFILE
         VALIDATE $? "Installation of $i"
     fi
 done
+
+
 
 
