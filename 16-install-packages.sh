@@ -4,10 +4,19 @@ USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+R="\e[31m"
+G="e\[32m"
+Y="e\[33m"
+N="e\[30m"
 
-echo $SCRIPT_NAME
-echo $LOGFILE
-echo $TIMESTAMP
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$2...$R FAILURE $N"
+        exit 1
+    else
+        echo "$2...$G SUCCESS $N"
+}
 
 if [ $USERID -ne 0 ]
 then
@@ -18,7 +27,17 @@ else
 fi
 
 
-echo "packeges to install: $@"  
+for i in $@
+do
+    echo "Packages to install: $i"
+    dnf list installed $i &>>LOGFILE
+    if [ $? -eq 0 ]
+    then
+        echo -e "$i already installed...$Y SKIPPING $N"
+    else
+        dnf install $i -y &>>LOGFILE
+        VALIDATE $? "Installation of $i"
+    fi
+done
 
 
-echo "Is script proceeding?"
