@@ -27,7 +27,7 @@ else
     echo "You are root user"
 fi
 
-for i in $@ # lloping through all the parameters $@
+for i in $@ # looping through all the parameters $@
 do 
     echo "Package to install: $i"
     dnf list installed $i &>>$LOGFILE
