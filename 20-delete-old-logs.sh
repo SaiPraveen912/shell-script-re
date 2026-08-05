@@ -20,7 +20,8 @@ FILES=$(find $SOURCE_DIRECTORY -name "*.log" -mtime +14)
 # echo "Files to delete: $FILES"
 
 # We are giving above FIles output as Input to while loop
-while IFS= read -r line
+while IFS= read -r line # IFS --> Internal field seperator
 do
-    echo "Deleting file: $line"
+    echo "Deleting file: $line" # Just showing what is getting deleted 
+    rm -rf $line # This will actually delete
 done <<< $FILES # input for this while loop is coming from FILES
