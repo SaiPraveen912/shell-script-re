@@ -16,5 +16,4 @@ dnf install mysqsdcdsl -y    # -y is mandatory otherwise shell script will keep 
 dnf install git -y
 
 
-
 echo "Is script proceeding?"
