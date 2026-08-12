@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MEMORY_USAGE=$(free | grep Mem | awk '{print ($3/$2)*100}')
-MEMORY_THRESHOLD=80
+MEMORY_THRESHOLD=25
 
 echo "Current Memory Usage: $MEMORY_USAGE%"
 
