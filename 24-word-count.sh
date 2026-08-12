@@ -37,7 +37,7 @@ COUNT=$(grep -i -w "$WORD" "$TEXT_FILE" | wc -l)
 
 echo
 echo "========================================"
-echo "Word Search Result"
+echo "          Word Search Result"
 echo "========================================"
 echo "Word  : $WORD"
 echo "Count : $COUNT"
@@ -55,7 +55,8 @@ else
     grep -in -w "$WORD" "$TEXT_FILE" |
     while IFS=: read -r LINE CONTENT
     do
-        echo "Line $LINE : $CONTENT"
+        HIGHLIGHTED=$(echo "$CONTENT" | sed "s/\b$WORD\b/\x1b[1;33m&\x1b[0m/Ig")
+        echo -e "Line $LINE : $HIGHLIGHTED"
     done
 
     echo "----------------------------------------"
