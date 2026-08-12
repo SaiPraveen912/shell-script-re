@@ -20,7 +20,8 @@ fi
 
 TEXT_FILE="/tmp/document-text.txt"
 
-docx2txt "$DOCUMENT" "$TEXT_FILE"
+unzip -p "$DOCUMENT" word/document.xml |
+grep -oP '<w:t[^>]*>\K[^<]+' > "$TEXT_FILE"
 
 COUNT=$(grep -i -w "$WORD" "$TEXT_FILE" | wc -l)
 
@@ -34,6 +35,7 @@ echo "================================"
 
 if [ "$COUNT" -eq 0 ]
 then
+    echo
     echo "Word '$WORD' was not found."
 else
     echo
