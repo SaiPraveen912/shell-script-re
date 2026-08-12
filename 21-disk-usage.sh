@@ -15,3 +15,5 @@ do
 done <<< $DISK_USAGE
 
 echo -e "Message: $MESSAGE" # \n is for new line above and -e is to enable special characters for \n to work
+
+echo "$MESSAGE" | mail -s "Disk Usage Alert" saipraveen.immanni@gmail.com info@joindevops.com
